@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeReview2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/SCSS/stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <!-- Navbar-Section -->
+    <nav class="navbar fixed-top navbar-expand-lg bg-dark " id="myNavbar">
+        <div class="container-fluid " id="navContainer">
+            <!-- <img src="/Icons/list5png.png" alt="" id="iconList" width="25px" height="25px"> -->
+            <!-- <li><span class="fa-li"><i class="fas fa-check-square"></i></span>List Item</li> -->
+            <a class="navbar-brand text-white" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarNav myLinks">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Tasks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Settings</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- <i class="fas fa-bell"></i> -->
+            <!-- <img src="/Icons/bell.svg" alt="" id="iconBell"> -->
+        </div>
+    </nav>
+
+    <!-- HeroSection -->
+    <div class="myHero">
+        <img src="/IMG/Hero_img.jpg" class="heroImg" alt="picture of a workspace" width="100%">
+        <h1 class="heroTitel position-absolute">Weekly planner</h1>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h2>Weekly Tasks</h2>
+            <div class="sortSection">
+                <span id="sortText">Sort by priority: </span>
+                <button id="sortBtn">sort</button>
+            </div>
+        </div>
+        <div id="myGrid" class="row row-cols-lg-3 row row-cols-md-2 row row-cols-sm-1 row row-cols-sx-1">
+        </div>
+    </div>
+
+
+    <!-- Footer-Section -->
+    <footer class="myFooter bg-dark">
+        <div class="myIcons bg-dark ">
+            <!-- <button class="btn bg-dark"><i class="fa fa-facebook"></i></button>
+            <button class="btn"><i class="fa fa-twitter"></i></button>
+            <button class="btn"><i class="fa fa-instagram"></i></button>
+            <button class="btn"><i class="fa fa-google"></i></button>
+            <button class="btn"><i class="fa fa-github"></i></button>
+            <button class="btn"><i class="fa fa-linkedin"></i></button> -->
+            <ul class="footerList">
+                <li>
+                    <a href="#" class="fa fa-facebook btn btn-dark"> </a>
+                </li>
+                <li>
+                    <a href="#" class="fa fa-twitter btn btn-dark"> </a>
+                </li>
+                <li>
+                    <a href="#" class="fa fa-linkedin btn btn-dark"> </a>
+                </li>
+                <li>
+                    <a href="#" class="fa fa-instagram btn btn-dark"> </a>
+                </li>
+                <li>
+                    <a href="#" class="fa fa-google btn btn-dark"> </a>
+                </li>
+                <li>
+                    <a href="#" class="fa fa-snapchat-ghost btn btn-dark"> </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footerBtn bg-dark ">
+            <form class="">
+                <div class="mySubmitSection">
+                    <label class=" text-white" for="inlineFormCustomSelect">Sign up for our newsletter</label>
+                    <input type="text" name="email" class="" class="email " placeholder="">
+                    <button class="btn btn-outline-light" type="subscribe" value="Subscribe">Subscribe</button>
+                </div>
+            </form>
+        </div>
+        <div class="copyRight text-white bg-dark">
+            <p>&copy; 2023 Copyright: Jenufa Simonis</p>
+        </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/JS/CD_RV2_cards.js"></script>
+
+
+
+</body>
+
+</html>
