@@ -13,7 +13,7 @@ let tasks = [{
         details: "Use lactose free ingredients, we have guests!",
         priority: 0,
         date: "06/20/2023",
-        taskImg: "https://cdn.pixabay.com/photo/2023/01/02/12/53/poached-egg-7692040_1280.jpg",
+        taskImg: "https://cdn.pixabay.com/photo/2022/09/05/09/23/spaghetti-7433732_1280.jpg",
     },
     {
         titel: "Walk the Dog",
@@ -45,7 +45,7 @@ let tasks = [{
         details: "Next week, wash the curtains",
         priority: 0,
         date: "07/01/2023",
-        taskImg: "https://cdn.pixabay.com/photo/2023/01/02/12/53/poached-egg-7692040_1280.jpg",
+        taskImg: "https://cdn.pixabay.com/photo/2022/10/21/21/17/interior-7537974_1280.jpg",
     },
     {
         titel: "Pick up the Bike",
@@ -75,78 +75,81 @@ let tasks = [{
 
 
 //Card-Setting
-for (let x of tasks) {
-    document.getElementById("myGrid").innerHTML +=
-        `<div class="card mycard">
-            <a href="#" class="btn btn-primary">Task</a>
+function printTasks() {
+
+    for (let x of tasks) {
+        document.getElementById("myGrid").innerHTML +=
+            `<div class="card mycard p-1 bg-light" id="taskCard">
+            <a href="#" class="btn btn-primary w-25 mb-1">Task</a>
             <img id="bild" src="${x.taskImg}" class="card-img-top" alt="...">
-            <div class="cardBody">
+            <div class="cardBody pt-2">
                 <h5 class="cardTitle">${x.titel}</h5>
                 <p class="cardText"> ${x.info} </p>
                 <hr> 
-                <label class="btnText">Priority level: </label>
-                <button type="button" class="btn btn-light withKlick"><span class="badge badge-light badgeField">${x.priority}</span></button>
-                <p class="dateText"> Deadline: ${x.date} </p>
+                <div class="d-flex align-items-center">
+                <i class="bi bi-exclamation-triangle-fill pe-2"></i>
+                <label class="btnText "> Priority level: </label>
+                <span class="withKlick ms-2 bg-success p-2">${x.priority}</span>
+                <button type="button" class="btn btn-light ms-2 myPrio"><i class="bi bi-caret-up-square" ></i></button>
+                </div>
+                <div class="d-flex">
+                <i class="bi bi-calendar-week pe-2"></i><p class="dateText">Deadline: ${x.date} </p></div>
                 <hr>
             </div>
-            <button type="button" class=" btn btn-danger delBtn">Delete</button>
-            <button type="button" class=" btn btn-success donBtn">Done</button>
+            <div class="d-flex flex-column align-items-end gap-2">
+            <button type="button" class=" btn btn-danger delBtn w-50 "><i class="bi bi-trash3 pe-2"></i>Delete</button>
+            <button type="button" class=" btn btn-success donBtn w-50 "><i class="bi bi-bag-check pe-2"></i>
+            Done</button>
+            </div>
         </div>`;
+    }
 }
+printTasks()
 
-//increase number of priority Btn
-let btnPri = document.getElementsByClassName("withKlick");
+
+//Btn
+let btnPri = document.getElementsByClassName("myPrio");
+let colPri = document.getElementsByClassName("withKlick");
+// let delBtn = document.getElementsByClassName("delBtn");
+
+
+//Priority Btn: increase number & Color Switch
 for (let x in btnPri) {
     btnPri[x].addEventListener("click", function() {
+        if (tasks[x].priority < 5) {
             tasks[x].priority++;
-            document.getElementsByClassName("badgeField")[x].innerHTML = tasks[x].priority;
-        })
-        // increasing till 5
-        // if (priority == 5) {
-        //     break
-        // }
-        // let priority = 5
-        // break
-
-
-}
-
-// change background Colore
-let numKlick = 0
-let colorChange = ["yellow", "green", "red"];
-
-btnPri.addEventListener('click', count);
-
-function count() {
-    numKlick = numKlick + 1;
-
-    if (numKlick < 2) {
-        this.style.backgroundColor = "yellow";
-    } else if (numKlick = 2 && numKlick4 < 4) {
-        this.style.backgroundColor = "green";
-    } else {
-        this.style.backgroundColor = "red";
-    }
-    document.querySelector('output').innerText = text;
-}
-
+            document.getElementsByClassName("withKlick")[x].innerHTML = tasks[x].priority;
+        }
+        if (tasks[x].priority == 2 || tasks[x].priority == 3) {
+            colPri[x].classList.remove("bg-success");
+            colPri[x].classList.add("bg-warning");
+        } else if (tasks[x].priority == 4 || tasks[x].priority == 5) {
+            colPri[x].classList.remove("bg-warning");
+            colPri[x].classList.add("bg-danger");
+        }
+    })
+};
 
 //Sort by Priority
-
-
-// tasks.sort()
-
+function sortbyPriority() {
+    let sortedTasks = tasks.sort((a, b) => b.priority - a.priority);
+    document.getElementById("myGrid").innerHTML = "";
+    printTasks(sortedTasks)
+}
+document.getElementsByClassName("sortBtn").addEventListener("click", sortbyPriority);
+console.log(sortbyPriority);
 
 
 //Delete Button
-let btnDel = document.getElementsByClassName("delBtn");
-for (let x in btnDel) {
-    btnDel[x].addEventListener("click", function() {
-        if (btnDel.onclick === "Delete") {
-            target.parentNode.remove();
-        }
-    });
-}
+// function Delete() {
+//     for (let x in btnDel) {
+//         btnDel[x].addEventListener("click", function() {
+//             if (btnDel.onclick === "Delete") {
+//                 target.parentNode.remove();
+//             }
+//         });
+//     }
+// }
 
 
 
@@ -175,8 +178,6 @@ for (let x in btnDel) {
 // ]
 
 // for (let x of icons) {
-//     document.getElementsByClassName("myIcons").innerHTML +=
+//     document.getElementsByClassName("myIcons")[0].innerHTML +=
 //         `<a href="#" class="" id="iconSM" src="${x.icon}" alt="..."></a>`
-
-
 // }
